@@ -7,18 +7,19 @@ const router = express.Router();
 
 const multer = require('multer');
 
-const myStorage = multer.diskStorage({
+const uploadPath = '/tmp/';
 
-    destination: './tmp',
-    filename: (req, file, cb)=>{
-        let fileName = Date.now() + '.' + file.mimetype.split('/')[1];
-        req.body.image = fileName;
-        cb(null, fileName);
-    }
+// No need to manually create /tmp/, it's writable in serverless
+const storage = multer.diskStorage({
+destination: function (req, file, cb) {
+cb(null, uploadPath);
+},
+filename: function (req, file, cb) {
+cb(null, Date.now() + path.extname(file.originalname));
+}
+});
 
-})
-
-const upload = multer({ storage: myStorage });
+const upload = multer({ storage: storage });
 
 
 router.post('/create', upload.single('image') , createService);
