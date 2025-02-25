@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     password: String,
     image: {
         type: String,
-        default: 'avatar.png'
+        default: "https://t3.ftcdn.net/jpg/08/79/30/74/360_F_879307431_XGlf059p2rLPAlIkWWPg3CMUVJAaxG13.jpg"
     }
 
 })

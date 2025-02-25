@@ -3,7 +3,11 @@ const Service = require('../models/service.model');
 exports.createService = async (req, res)=>{
 
     try {
-        const newService = new Service(req.body);
+        const imageUrl = req.file ? req.file.path : "";
+        const newService = new Service({
+            ...req.body,
+            image: imageUrl,
+        });
         await newService.save();
         res.status(201).json({ message: 'service created ' });
         

@@ -7,7 +7,10 @@ const serviceSchema = new mongoose.Schema({
     location: String,
     salary: Number,
     description: String,
-    image: String,
+    image: {
+        type: String,
+        default: "https://i.postimg.cc/kg0PyHnB/1735162364672.jpg"
+    },
     idUser : { type: mongoose.Schema.Types.ObjectId , ref : 'User' }
 
 })
