@@ -1,11 +1,15 @@
 const express = require('express');
-require('./config/connect');
-
-const cors = require('cors');
-
+const cors = require('cors')
 const app = express();
+const mongoose = require('mongoose');
+const path = require('path');
+
 app.use(express.json());
 app.use(cors());
+
+mongoose.connect(process.env.MONGO_URL || "mongodb+srv://ahmedsalah200155:Freelance123@freelance.dxukl.mongodb.net/?retryWrites=true&w=majority&appName=freelance")
+    .then(() => console.log('Connected to MongoDB...'))
+    .catch(err => console.error('Could not connect to MongoDB...'));
 
 
 const userRoute = require('./routes/user.route');
@@ -22,7 +26,5 @@ app.get('/test' , (req, res)=>{ res.send('server work') });
 
 app.use('/image' , express.static('./public'));
 
-app.listen(8080 || process.env.PORT, ()=>{
-    console.log('server work');
-})
+app.listen(process.env.PORT || 3000, () => console.log(`Server is running`));
 
