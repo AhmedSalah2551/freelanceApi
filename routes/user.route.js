@@ -9,7 +9,7 @@ const multer = require('multer');
 
 const myStorage = multer.diskStorage({
 
-    destination: './public',
+    destination: './tmp',
     filename: (req, file, cb)=>{
         let fileName = Date.now() + '.' + file.mimetype.split('/')[1];
         req.body.image = fileName;
