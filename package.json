@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run build && node index.js",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install"
   },
   "keywords": [],
   "engines": {
