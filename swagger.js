@@ -5,11 +5,7 @@ const doc = {
         title: 'Freelance API',
         description: 'Nodejs Express MongoDB Freelance API'
     },
-    host:  [
-        { url: "http://localhost:3000" },
-        { url: "https://freelance-api-pi.vercel.app/api" } 
-    ],
-
+    host: 'https://freelance-api-pi.vercel.app',
     schemes: ['https'],
 };
 
