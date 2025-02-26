@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors')
 const app = express();
+
 const mongoose = require('mongoose');
 
 app.use(express.json());
@@ -24,7 +25,13 @@ app.use('/proposals' , proposalRoute);
 
 app.get('/test' , (req, res)=>{ res.send('server work') });
 
-app.use('/image' , express.static('./public'));
+app.use('/image' , express.static('./tmp'));
+
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen( process.env.PORT || 3000, () => console.log(`Server is running`));
 
