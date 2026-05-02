@@ -5,17 +5,10 @@
     "description": "Nodejs Express MongoDB Freelance API",
     "version": "1.0.0"
   },
-  "host": [
-    {
-      "url": "http://localhost:3000"
-    },
-    {
-      "url": "https://freelance-api-pi.vercel.app/api"
-    }
-  ],
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/test": {

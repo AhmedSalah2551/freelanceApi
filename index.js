@@ -8,9 +8,9 @@ const mongoose = require('mongoose');
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect( process.env.MONGODB_URI || "mongodb+srv://ahmedsalah200155:Freelance123@freelance.dxukl.mongodb.net/?retryWrites=true&w=majority&appName=freelance")
+mongoose.connect( process.env.MONGODB_URI || "mongodb://ahmed:Aa123456789@ac-peccnqs-shard-00-00.fylokkl.mongodb.net:27017,ac-peccnqs-shard-00-01.fylokkl.mongodb.net:27017,ac-peccnqs-shard-00-02.fylokkl.mongodb.net:27017/?ssl=true&replicaSet=atlas-2w2q6p-shard-0&authSource=admin&appName=freelance-market")
     .then(() => console.log('Connected to MongoDB...'))
-    .catch(err => console.error('Could not connect to MongoDB...'));
+    .catch(err => console.error('Could not connect to MongoDB...', err.message));
 
 
 const userRoute = require('./routes/user.route');

@@ -5,8 +5,8 @@ const doc = {
         title: 'Freelance API',
         description: 'Nodejs Express MongoDB Freelance API'
     },
-    host: 'https://freelance-api-pi.vercel.app',
-    schemes: ['https'],
+    host: 'http://localhost:3000',
+    schemes: ['http'],
 };
 
 const outputFile = './swagger-output.json';
