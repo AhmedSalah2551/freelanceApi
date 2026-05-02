@@ -6,7 +6,18 @@ const app = express();
 const mongoose = require('mongoose');
 
 app.use(express.json());
-app.use(cors());
+
+const corsOptions = {
+  origin: [
+    'http://localhost:4200',
+    'http://localhost:3000',
+  ],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Handle preflight for all routes
 
 mongoose.connect( process.env.MONGODB_URI || "mongodb://ahmed:Aa123456789@ac-peccnqs-shard-00-00.fylokkl.mongodb.net:27017,ac-peccnqs-shard-00-01.fylokkl.mongodb.net:27017,ac-peccnqs-shard-00-02.fylokkl.mongodb.net:27017/?ssl=true&replicaSet=atlas-2w2q6p-shard-0&authSource=admin&appName=freelance-market")
     .then(() => console.log('Connected to MongoDB...'))
