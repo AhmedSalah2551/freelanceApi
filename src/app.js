@@ -11,6 +11,7 @@ const corsOptions = {
   origin: [
     'http://localhost:4200',
     'http://localhost:3000',
+    'https://beautiful-bunny-802c23.netlify.app'
   ],
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
